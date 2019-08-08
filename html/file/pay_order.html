@@ -1,0 +1,386 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=on">
+		<link href="static/css/m-reset.css" rel="stylesheet">
+		<link href="static/css/global20170313.css" rel="stylesheet">
+		<link href="static/theme/blue.css" rel="stylesheet">
+		<link href="static/css/topic-style.css" rel="stylesheet">
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/currency_utils.js"></script>
+		<script src="static/js/global20170703.js"></script>
+
+
+
+
+		<title>下单--填写预订信息</title>
+	</head>
+
+	<body class="bg">
+		<div id="vue">
+			<!--头部导航-->
+			<header class="top">
+				<div class="main">
+					<div class="left"><a href="javascript:history.back();"><b class="f-icons">R</b></a></div>
+					<div class="right"></div>
+					<p class="ti">填写预订信息</p>
+				</div>
+			</header>
+			<!--头部导航EDN-->
+			<form action="user_info.html" style="padding: 0px;margin: 0px;" name="f1" id="f1" method="post">
+				<input type="hidden" name="sdate" id="sdate" value="2019-07-16">
+				<input type="hidden" name="info_id" value="9458916">
+				<input type="hidden" name="tree_id" value="0">
+				<!--信息框-->
+				<div class="sb-item mb15">
+					<div class="sb-ti detail mb15">
+						<p>清泉湾空中玻璃漂+极速漂流+动感水城 成人票（即买即用 免预约）</p>
+			
+						<span class="date">游玩日期：2019-07-16(周二)</span>
+			
+					</div>
+					<div class="sb-ti">【数量选择】</div>
+					<ul class="countPrice productPrice" id="numlist">
+			
+						<li>
+							<span style="padding-right: 10vw;">成人</span>
+							<span style="font-size: 1rem;">单价<strong class="unitPrice" style="font-size: 1.6rem;color:red;">￥{{Adult_price}}</strong>
+			
+							</span>
+							<span class="number right" style="margin-top:10px;"><a v-on:click='adult_minus' class="none minus" min="1">-</a><span><input type="text" min="1" max="10000" class="no notext"
+									 name="num" :value="Adult_num"></span><a v-on:click='adult_add' class="add" max="10000">+</a></span>
+							<input type="hidden" name="cond" value="2019-07-16">
+							<input type="hidden" id="minnum" value="1">
+			
+							<input type="hidden" name="team_sale_price" id="team_sale_price" value="198.0">
+							<input type="hidden" name="team_start_num" id="team_start_num" value="10">
+			
+						</li>
+						
+						<li>
+							<span style="padding-right: 10vw;">儿童</span>
+							<span style="font-size: 1rem;">单价<strong class="unitPrice" style="font-size: 1.6rem;color:red;">￥{{child_price}}</strong>
+						
+							</span>
+							<span class="number right" style="margin-top:10px;"><a v-on:click='child_minus' class="none minus" min="1">-</a><span><input type="text" min="1" max="10000" class="no notext"
+									 name="num" :value="child_num"></span><a v-on:click='child_add' class="add" max="10000">+</a></span>
+							<input type="hidden" name="cond" value="2019-07-16">
+							<input type="hidden" id="minnum" value="1">
+						
+							<input type="hidden" name="team_sale_price2" id="team_sale_price2" value="198.0">
+							<input type="hidden" name="team_start_num2" id="team_start_num2" value="10">
+						
+						</li>
+						
+						<li class="sb-bt"><p class="price">合计：￥<strong class="countPrice">{{total_price}}</strong>元</p></li>
+						
+					</ul>
+			
+					<!-- <div class="agreement main"><input type="checkbox" class="select" id="agreexy">我已经查看<a class="ti" name="agreexy"
+						 href="javascript:showdesc();">预订须知</a>,并同意该内容。</div> -->
+				</div>
+				<!--信息框END-->
+				<input type="hidden" name="totalCount" id="totalCount" value="0">
+			</form>
+			<!--按钮固定层-->
+			<div class="btn-div">
+				<div class="btn-main">
+					<span class="price">订单总金额:<strong class="totalCount">{{total_price}}</strong>元</span><a href="javascript:;" v-on:click='go' class="btn btn-orange">去填写游客信息<b
+						 class="f-icons f14">C</b></a>
+				</div>
+			</div>
+			<!--按钮固定层END-->
+			<!-- 确认框 -->
+			<div id="comfrim" style="border: 1px solid #000;width: 100%;margin: auto;height: 100%;position: fixed;left: 0px;top: 0px;background: rgba(0, 0, 0, 0.6) none repeat scroll 0% 0%;overflow: auto;text-align: center;display: none;">
+				<div style="background: white;width: 220px;height: 130px;left: 50%;top: 50%;margin-top: -100px;margin-left: -100px;border-radius: 5px; position: fixed;">
+					<div style="height: 90px;border-bottom: 1px solid #CCCCCC;">
+						<!-- 框内内容 -->
+						<div style="font-size: 1.2rem;padding-top: 40px;" id="comfirmtxt"></div>
+					</div>
+					<div style="height: 39px;">
+						<div onclick="cancel()" style="float: left;width: 50%;height: 39px;border-right: 1px solid #CCCCCC;line-height: 39px;font-size: 1.2rem">取消</div>
+						<div onclick="sub2()" style="float: right;width: 49%;height: 39px;line-height: 39px;font-size: 1.2rem;color:#01568C">确定</div>
+					</div>
+				</div>
+			</div>
+			<!-- 确认框end -->
+			<div class="mask-div"></div>
+			<div class="prompt-box">
+				<div class="prompt-con"></div>
+				<div class="pb-btn"><a class="close">关闭</a></div>
+			</div>
+			<div style="display:none" id="order_desc">
+				<p><img title="5555_看图王.jpg" style="float:none;" src="http://qnimg.zowoyoo.com/img/381756/1524027815866.jpg" border="0"
+					 vspace="0" hspace="0"></p>
+				<p><br></p>
+				<p>免预约，凭短信验证码直接到景区营销中心验证换票入园</p>
+				<p><br></p>
+			</div>
+		</div>
+		
+		<script src="static/js/Vue2.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var total_price = 0;
+			var Adult_num = 1;
+			var Adult_price = 199;
+			var child_num = 1;
+			var child_price = 99;
+			
+			new Vue({
+				el:"#vue",
+				data:{
+					total_price: total_price,
+					Adult_num: Adult_num,
+					Adult_price: Adult_price,
+					child_num: child_num,
+					child_price: child_price
+				},
+				created:function(){
+					this.total_price = this.Adult_price*this.Adult_num + this.child_price*this.child_num;
+				},
+				methods: {
+					
+					// 成人增加
+					adult_add: function(){
+						this.Adult_num++;
+						Adult_num++;
+						this.total_money();
+					},
+					
+					// 成人减少
+					adult_minus: function(){
+						if(!this.Adult_num > 0){
+							return false;
+						}
+						this.Adult_num--;
+						Adult_num--;
+						this.total_money();
+					},
+					
+					// 增加儿童
+					child_add: function(){
+						this.child_num++;
+						child_num++;
+						this.total_money();
+					},
+					
+					// 儿童减少
+					child_minus: function(){
+						if(!this.child_num > 0){
+							return false;
+						}
+						this.child_num--;
+						child_num--;
+						this.total_money();
+					},
+					
+					// 计算总价
+					total_money: function(){
+						this.total_price = this.Adult_price*this.Adult_num + this.child_price*this.child_num;
+					},
+					
+					// 去填写
+					go:function(){
+						if(!this.total_price > 0){
+							alert('订单金额小于0')
+							return false;
+						}
+						location.href='user_info.html'
+					}
+				}
+			})
+			
+		</script>
+		<script language="javascript">
+			
+			
+		
+// 			function showdesc() {
+// 				promptBox2($('#order_desc').html());
+// 				document.getElementById('agreexy').checked = true;
+// 			}
+// 			$(function() {
+// 				bindOrderT();
+// 			});
+// 
+// 			function cancel() {
+// 				/* 隐藏 */
+// 				document.getElementById("comfrim").style.display = "none";
+// 			}
+// 
+// 			function sub() {
+// 				if (document.getElementById('agreexy').checked == false) {
+// 					window.location.hash = "#agreexy";
+// 					promptBox3('请先查看预订须知，然后进行预订。');
+// 					return;
+// 				}
+// 				var o = $('#numlist').find(".notext");
+// 				var num = 0;
+// 				for (i = 0; i < o.length; i++) {
+// 					num += parseInt(o[i].value);
+// 				}
+// 				if (num < parseInt(document.getElementById('minnum').value)) {
+// 					alert('预订数量不能少于' + document.getElementById('minnum').value + '张!');
+// 					return;
+// 				}
+// 				countAddT();
+// 				if ($('.totalCount').text() == '' || $('.totalCount').text() == '0') {
+// 					alert('预订金额不能为0！');
+// 					return;
+// 				}
+// 				$('#totalCount').val($('.totalCount').text());
+// 
+// 
+// 				var cust = 381756
+// 				if (cust == '84826' || cust == '2328548') {
+// 					document.getElementById("comfirmtxt").innerHTML = "确认选择[" + $('#sdate').val() + "]出游？"
+// 					document.getElementById("comfrim").style.display = "block";
+// 				} else {
+// 					if (confirm('确认选择[' + $('#sdate').val() + ']出游？'))
+// 						location.href='user_info.html'
+// 						// document.getElementById('f1').submit();
+// 				}
+// 
+// 			}
+// 
+// 			function sub2() {
+// 				document.getElementById('f1').submit();
+// 			}
+// 
+// 			function bindOrderT() {
+// 				/* 订单金额 */
+// 				$(".selCheckbox .sel-c").click(function() {
+// 					$(this).parents("li").toggleClass("sel");
+// 					if ($(this).parents("li").hasClass("sel")) {
+// 						$(this).parents("li").find(".add").removeClass("none");
+// 						$(this).parents("li").find(".no").val(1);
+// 						$(this).parents("li").find(".minus").removeClass("none");
+// 					} else {
+// 						$(this).parents("li").find(".add").addClass("none");
+// 						$(this).parents("li").find(".minus").addClass("none");
+// 						$(this).parents("li").find(".no").val(0);
+// 					}
+// 					countAddT();
+// 				});
+// 				$(".number a").unbind();
+// 				$(".number a").bind("click", function() {
+// 					var i = $(this).parent().find(".no").val();
+// 					var minMun = 0;
+// 					if ($(this).parents("ul").hasClass("addPrice")) {
+// 						numberT(this, i, minMun)
+// 					} else if ($(this).parents("ul").hasClass("productPrice")) {
+// 						minMun = 1;
+// 						numberT(this, i, minMun)
+// 					} else {
+// 						numberT(this, i, minMun)
+// 					}
+// 				});
+// 				$("input[name='num']").unbind();
+// 				$("input[name='num']").bind("change", function() {
+// 					var obj = $(this);
+// 					if (this.value == '' || parseInt(this.value) < parseInt(obj.attr('min'))) {
+// 						alert('数量不能少于' + obj.attr('min') + '张!');
+// 						this.value = obj.attr('min');
+// 					}
+// 					if (parseInt(this.value) > parseInt(obj.attr('max'))) {
+// 						alert('数量不能大于' + obj.attr('max') + '张!');
+// 						this.value = obj.attr('max');
+// 					}
+// 					countAddT();
+// 				});
+// 				countAddT();
+// 			}
+// 
+// 			function numberT(ojb, i, minMun) {
+// 				if ($(ojb).hasClass("none") && $(ojb).hasClass("add")) {
+// 					$(ojb).removeClass("none");
+// 					$(ojb).parents("li").addClass("sel");
+// 				}
+// 				if ($(ojb).hasClass("add")) {
+// 					i = parseInt(i) + 1;
+// 					$(ojb).parent().parent().find(".notext").val(i);
+// 					var max = $(ojb).attr('max');
+// 					if (i > parseInt(max)) {
+// 						promptBox3('数量不能超过' + max);
+// 						return;
+// 					}
+// 					$(ojb).parent().find(".no").val(i);
+// 					if (i > minMun) {
+// 						$(ojb).parent().find(".minus").removeClass("none");
+// 					}
+// 				}
+// 				if ($(ojb).hasClass("minus")) {
+// 					var min = $(ojb).attr('min');
+// 					if (parseInt(i) > parseInt(min)) {
+// 						i = parseInt(i) - 1;
+// 						$(ojb).parent().find(".no").val(i);
+// 						$(ojb).parent().parent().find(".notext").val(i);
+// 						if (i < minMun + 1) {
+// 							$(ojb).addClass("none");
+// 							if ($(ojb).parents("li").hasClass("sel")) {
+// 								$(ojb).parents("li").removeClass("sel");
+// 								$(ojb).parent().find(".add").addClass("none");
+// 							}
+// 						}
+// 					} else {
+// 						promptBox3("数量已是最少值!");
+// 						return;
+// 					}
+// 				}
+// 				countAddT();
+// 			}
+// 
+// 			function countAddT() {
+// 				var totalCount = 0;
+// 				var syncNum = "";
+// 				$(".countPrice").each(function() {
+// 					var unitPrice = 0;
+// 					$(this).find(".unitPrice").each(function() {
+// 						//增值项目处理人数限制
+// 						var sync = $(this).parents("li").find(".no").attr("sync");
+// 						console.log(sync)
+// 						if (sync == '1' && syncNum != '') {
+// 							var min = $(this).parents("li").find(".no").attr("min");
+// 							if (min == '1') { //是否必须购买-必选
+// 								$(this).parents("li").find(".no").val(syncNum);
+// 							} else { //是否必须购买-可选
+// 								var condNum = $(this).parents("li").find(".no").val();
+// 								if (condNum != '' && parseInt(condNum) > 0) {
+// 									$(this).parents("li").find(".no").val(syncNum);
+// 								}
+// 							}
+// 						}
+// 						var a = $(this).text().replace(",", ""); //清除格式化后的价格中的逗号,以便后面计算;
+// 						var b = $(this).parents("li").find(".no").val();
+// 						if (b != '') {
+// 							var num = parseInt(b);
+// 							if (syncNum == '') {
+// 								syncNum = num;
+// 							}
+// 							var price = parseFloat(a);
+// 							if ($('#team_start_num').length > 0 && num >= parseInt($('#team_start_num').val()) && sync == undefined) { //增值项目的价格不能取团队价
+// 								price = parseFloat($('#team_sale_price').val());
+// 							}
+// 							unitPrice += price * num;
+// 						} else {
+// 							if ($(this).parents("li").hasClass("sel")) {
+// 								unitPrice += parseFloat(a);
+// 							}
+// 						}
+// 					});
+// 					console.log(unitPrice)
+// 					unitPrice = Math.round(unitPrice * 100) / 100;
+// 					$(this).find(".countPrice").text(unitPrice.formatMoney());
+// 					totalCount += parseFloat(unitPrice);
+// 				});
+// 				$(".totalCount").text((Math.round(totalCount * 100) / 100).formatMoney());
+// 				
+// 			}
+		</script>
+
+
+	</body>
+</html>

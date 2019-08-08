@@ -1,0 +1,321 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=on">
+		<link href="static/css/m-reset.css" rel="stylesheet">
+		<link href="static/css/global20170313.css" rel="stylesheet">
+		<link href="static/css/theme/blue.css" rel="stylesheet">
+		<link href="static/css/topic-style.css" rel="stylesheet">
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/currency_utils.js"></script>
+		<script src="static/js/global20170703.js"></script>
+		<title>下单--填写客人资料</title>
+	</head>
+	<body class="bg">
+
+		<div class="loading-wrap" style="display:none;">
+			<div class="loading4"><img src="/m2c/2/img/tips/loading.gif">
+				<p>正在保存订单并且跳转到支付界面</p>
+			</div>
+		</div>
+		<header class="top">
+			<div class="main">
+				<div class="left"><a href="javascript:history.back();"><b class="f-icons">R</b></a></div>
+				<div class="right"></div>
+				<p class="ti">填写游客信息</p>
+			</div>
+		</header>
+		<form action="order_ticket_finish.jsp" name="f1" id="f1" style="padding: 0px;margin: 0px;" method="post">
+			<div class="sb-item2 mb15">
+				<ul style="margin-bottom: 2vw;">
+					<div style="background: steelblue;color:white;line-height: 30px;padding: 0 3vw;">
+						成人1
+					</div>
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>姓名
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入真实姓名" name="link_man" id="link_man" class="inp-txt" value="" notnull="true">
+						</div>
+					</li>
+					
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>身份证
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入身份证号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>手机号码
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入中国大陆手机号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				</ul>
+				
+				<ul style="margin-bottom: 2vw;">
+					<div style="background: steelblue;color:white;line-height: 30px;padding: 0 3vw;">
+						成人2
+					</div>
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>姓名
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入真实姓名" name="link_man" id="link_man" class="inp-txt" value="" notnull="true">
+						</div>
+					</li>
+					
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>身份证
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入身份证号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>手机号码
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入中国大陆手机号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				</ul>
+				
+				<ul style="margin-bottom: 2vw;">
+					<div style="background: steelblue;color:white;line-height: 30px;padding: 0 3vw;">
+						儿童1
+					</div>
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>姓名
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入真实姓名" name="link_man" id="link_man" class="inp-txt" value="" notnull="true">
+						</div>
+					</li>
+					
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>身份证
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入身份证号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>手机号码
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入中国大陆手机号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				</ul>
+				
+				<ul style="margin-bottom: 2vw;">
+					<div style="background: steelblue;color:white;line-height: 30px;padding: 0 3vw;">
+						儿童2
+					</div>
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>姓名
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入真实姓名" name="link_man" id="link_man" class="inp-txt" value="" notnull="true">
+						</div>
+					</li>
+					
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>身份证
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入身份证号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				
+					<li>
+						<div class="left">
+							<p>
+								<font color="red"></font>手机号码
+							</p>
+						</div>
+						<div class="right"><input placeholder="请输入中国大陆手机号码" name="link_phone" id="link_phone" class="inp-txt" value=""
+							 notnull="true">
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="sb-item2 main mb15">
+				<div class="remark">
+					<p class="ti"><b class="f-icons">I</b>备注信息</p>
+					<div class="info"><textarea placeholder="可录入客人的一些情况和需求，价格信息备注无效" name="order_memo"></textarea></div>
+				</div>
+			</div>
+
+			<!--信息框END-->
+
+			<!--按钮固定层-->
+			<div class="btn-div">
+				<div class="btn-main">
+					<span class="price">订单总金额:<strong>198</strong>元</span><a class="btn btn-orange prompt-btn" href="####" onclick="sub();">确认下单<b
+						 class="f-icons f14">C</b></a>
+				</div>
+			</div>
+			<!--按钮固定层END-->
+			<input type="hidden" name="field" value="link_man,link_phone,">
+			<input type="hidden" name="is_single" value="0">
+			<input type="hidden" name="num" value="1">
+			<input type="hidden" name="cond" value="2019-07-16">
+
+			<input type="hidden" name="info_id" value="9458916">
+			<input type="hidden" name="seat" value="">
+			<input type="hidden" name="tree_id" value="0">
+			<input type="hidden" name="travel_date" value="2019-07-16">
+			<input type="hidden" name="get_type" value="0">
+			<input type="hidden" name="end_travel_date" value="2019-07-16">
+			<input type="hidden" name="is_send" value="0">
+			<input type="hidden" name="interface_id" value="10009855">
+			<input type="hidden" name="member_id" value="">
+		</form>
+		<script type="text/javascript">
+			var s = $("#link_credit_type option:selected").text();
+			$("#link_credit_no").attr('placeholder', s + "号码");
+			$("#link_credit_type").change(function() {
+				var str = $("#link_credit_type option:selected").text();
+				$("#link_credit_no").attr('placeholder', str + "号码");
+			});
+
+			var ob = $('select[name="link_credit_type1"]').length;
+			if (ob > 0) {
+				for (i = 1; i <= ob; i++) {
+					var s = $("#link_credit_type" + i + " option:selected").text();
+					if (s == "身份证") {
+						$("#link_credit_no" + i).attr('placeholder', "儿童输入出生日期");
+					} else {
+						$("#link_credit_no" + i).attr('placeholder', s + "号码");
+					}
+				}
+			}
+			$('select[name="link_credit_type1"]').change(function() {
+				if (ob > 0) {
+					for (i = 1; i <= ob; i++) {
+						var s = $("#link_credit_type" + i + " option:selected").text();
+						if (s == "身份证") {
+							$("#link_credit_no" + i).attr('placeholder', "儿童输入出生日期");
+						} else {
+							$("#link_credit_no" + i).attr('placeholder', s + "号码");
+						}
+					}
+				}
+			});
+
+			var subf = 0;
+
+			function sub() {
+				if (subf == 1) {
+					alert('请不要重复提交！');
+					return;
+				}
+				var objs = $('#f1').find('input[notnull="true"]');
+				for (i = 0; i < objs.length; i++) {
+					if (objs[i].value == '') {
+						alert('输入框前面带*号为必填内容。');
+						objs[i].focus();
+						return false;
+					}
+				}
+
+				//身份证号码的校验
+				if ($('#link_credit_type').length > 0 && $('#link_credit_type').val() == '0' && $('#link_credit_no').val() != '') {
+					if (!chkidcard('link_credit_no')) {
+						$('#link_credit_no').focus();
+						return false;
+					}
+				}
+				var objs = $('input[name="link_credit_no1"]');
+				if (objs.length > 0) {
+					for (i = 0; i < objs.length; i++) {
+						if ($(objs[i]).val() != '' && $('#link_credit_type' + (i + 1) + ' option:selected').val() == '0') {
+							if (!chkidcard('link_credit_no' + (i + 1))) {
+								$('#link_credit_no' + (i + 1)).focus();
+								return false;
+							}
+						}
+					}
+				}
+
+				if ($('#link_address').length > 0) {
+					var link_address = '';
+					if ($('#provid').val() != '') {
+						var selectObj = document.getElementById('provid');
+						link_address += selectObj.options[selectObj.selectedIndex].text + ' ';
+					}
+					if ($('#cityid').val() != '') {
+						var selectObj = document.getElementById('cityid');
+						link_address += selectObj.options[selectObj.selectedIndex].text + ' ';
+					}
+					$('#link_address').val(link_address + $('#link_address').val());
+				}
+				if ($('#order_files').length > 0) {
+					var sel = $("#files").children('span');
+					var files = "";
+					if (sel.length > 0) {
+						files = "[";
+						files += "{'link':'" + sel.eq(0).attr('link') + "','title':'" + sel.eq(0).attr('title') + "'}";
+						for (var i = 1; i < sel.length; i++) {
+							files += ",{'link':'" + sel.eq(i).attr('link') + "','title':'" + sel.eq(i).attr('title') + "'}";
+						}
+						files += "]";
+					}
+					$('#order_files').val(files);
+				}
+				subf = 1;
+				$('#f1').submit();
+				$('.loading-wrap').show();
+			}
+
+			$(function() {
+				var objs = $('input[notnull="true"]');
+				for (i = 0; i < objs.length; i++) {
+					$(objs[i]).parent().prev().children().prepend('<font color=red>*</font>');
+				}
+			});
+		</script>
+
+	</body>
+</html>
